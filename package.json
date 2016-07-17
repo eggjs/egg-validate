@@ -1,0 +1,48 @@
+{
+  "name": "egg-validate",
+  "version": "1.0.0",
+  "description": "validate plugin for egg",
+  "eggPlugin": {
+    "name": "validate"
+  },
+  "keywords": [
+    "egg",
+    "plugin"
+  ],
+  "dependencies": {
+    "parameter": "^2.0.0"
+  },
+  "devDependencies": {
+    "autod": "^2.6.1",
+    "egg-bin": "^1.0.2",
+    "egg-ci": "^1.0.2",
+    "eslint": "^3.1.0",
+    "eslint-config-egg": "^3.1.0",
+    "should": "^9.0.2",
+    "supertest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint --ext js . --fix",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "4, 6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggjs/egg-validate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eggjs/egg/issues"
+  },
+  "homepage": "https://github.com/eggjs/egg-validate#readme",
+  "author": "dead_horse",
+  "license": "MIT"
+}
