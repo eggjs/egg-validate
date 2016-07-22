@@ -14,12 +14,15 @@
   },
   "devDependencies": {
     "autod": "^2.6.1",
+    "egg": "*",
     "egg-bin": "^1.0.2",
     "egg-ci": "^1.0.2",
+    "egg-mock": "*",
     "eslint": "^3.1.0",
     "eslint-config-egg": "^3.1.0",
     "should": "^9.0.2",
-    "supertest": "^1.2.0"
+    "supertest": "^1.2.0",
+    "supertest-as-promised": "^3.2.0"
   },
   "engines": {
     "node": ">=4.0.0"
