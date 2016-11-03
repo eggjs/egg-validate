@@ -1,21 +1,22 @@
 'use strict';
 
-const request = require('supertest-as-promised');
+const request = require('supertest');
 const mm = require('egg-mock');
+const path = require('path');
 
 describe('test/validate.test.js', () => {
   let app;
   before(() => {
     app = mm.app({
       baseDir: 'validate_form',
-      plugin: 'validate',
+      customEgg: path.join(__dirname, '../node_modules/egg'),
     });
     return app.ready();
   });
 
   describe('get', () => {
     it('should return invalid_param when body empty', () => {
-      return request(app.listen())
+      return request(app.callback())
       .get('/users.json')
       .expect({
         code: 'invalid_param',
@@ -29,7 +30,7 @@ describe('test/validate.test.js', () => {
     });
 
     it('should all pass', () => {
-      return request(app.listen())
+      return request(app.callback())
       .get('/users.json')
       .send({
         username: 'foo@gmail.com',
@@ -48,7 +49,7 @@ describe('test/validate.test.js', () => {
 
   describe('post', () => {
     it('should return invalid_param when body empty', () => {
-      return request(app.listen())
+      return request(app.callback())
       .post('/users.json')
       .expect({
         code: 'invalid_param',
@@ -62,7 +63,7 @@ describe('test/validate.test.js', () => {
     });
 
     it('should return invalid_param when length invaild', () => {
-      return request(app.listen())
+      return request(app.callback())
       .post('/users.json')
       .send({
         username: 'foo',
@@ -80,7 +81,7 @@ describe('test/validate.test.js', () => {
     });
 
     it('should return invalid_param when password not equal to re-password', () => {
-      return request(app.listen())
+      return request(app.callback())
       .post('/users.json')
       .send({
         username: 'foo@gmail.com',
@@ -98,7 +99,7 @@ describe('test/validate.test.js', () => {
     });
 
     it('should return invalid_param when username invaild', () => {
-      return request(app.listen())
+      return request(app.callback())
       .post('/users.json')
       .send({
         username: '.foo@gmail.com',
@@ -114,7 +115,7 @@ describe('test/validate.test.js', () => {
     });
 
     it('should all pass', () => {
-      return request(app.listen())
+      return request(app.callback())
       .post('/users.json')
       .send({
         username: 'foo@gmail.com',
@@ -132,7 +133,7 @@ describe('test/validate.test.js', () => {
 
   describe('addRule()', function() {
     it('should check custom rule ok', () => {
-      return request(app.listen())
+      return request(app.callback())
       .post('/users.json')
       .send({
         username: 'foo@gmail.com',

@@ -7,44 +7,41 @@
   },
   "keywords": [
     "egg",
-    "plugin"
+    "plugin",
+    "validate"
   ],
   "dependencies": {
     "parameter": "^2.0.0"
   },
   "devDependencies": {
-    "autod": "^2.6.1",
+    "autod": "^2.7.1",
     "egg": "*",
-    "egg-bin": "^1.0.2",
-    "egg-ci": "^1.0.2",
-    "egg-mock": "*",
-    "eslint": "^3.1.0",
+    "egg-bin": "^1.6.0",
+    "egg-ci": "^1.0.3",
+    "egg-mock": "^1.1.0",
+    "eslint": "^3.9.1",
     "eslint-config-egg": "^3.1.0",
-    "should": "^9.0.2",
-    "supertest": "^1.2.0",
-    "supertest-as-promised": "^3.2.0"
+    "supertest": "^2.0.1"
   },
   "engines": {
     "node": ">=4.0.0"
   },
   "scripts": {
-    "test": "npm run lint && npm run test-local",
+    "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
-    "lint": "eslint --ext js . --fix",
+    "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
     "autod": "autod"
   },
   "ci": {
-    "version": "4, 6"
+    "version": "4, 6, 7"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eggjs/egg-validate.git"
   },
-  "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
-  },
+  "bugs": "https://github.com/eggjs/egg/issues",
   "homepage": "https://github.com/eggjs/egg-validate#readme",
   "author": "dead_horse",
   "license": "MIT"
