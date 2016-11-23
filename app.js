@@ -2,7 +2,7 @@
 
 const Parameter = require('parameter');
 
-module.exports = function(app) {
+module.exports = app => {
   /**
    * Validate
    *
