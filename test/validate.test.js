@@ -14,6 +14,8 @@ describe('test/validate.test.js', () => {
     return app.ready();
   });
 
+  after(() => app.close());
+
   describe('get', () => {
     it('should return invalid_param when body empty', () => {
       return request(app.callback())
@@ -131,7 +133,7 @@ describe('test/validate.test.js', () => {
     });
   });
 
-  describe('addRule()', function() {
+  describe('addRule()', () => {
     it('should check custom rule ok', () => {
       return request(app.callback())
       .post('/users.json')
