@@ -3,11 +3,12 @@
 module.exports = {
   write: true,
   prefix: '^',
-   test: [
-     'test',
-     'benchmark',
-   ],
+  test: [
+    'test',
+    'benchmark',
+  ],
   devdep: [
+    'egg',
     'egg-ci',
     'egg-bin',
     'autod',
