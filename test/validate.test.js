@@ -2,6 +2,7 @@
 
 const request = require('supertest');
 const mm = require('egg-mock');
+const assert = require('assert');
 
 describe('test/validate.test.js', () => {
   let app;
@@ -18,15 +19,16 @@ describe('test/validate.test.js', () => {
     it('should return invalid_param when body empty', () => {
       return request(app.callback())
       .get('/users.json')
-      .expect({
-        code: 'invalid_param',
-        message: 'Validation Failed',
-        errors: [
+      .type('json')
+      .expect(422)
+      .expect(res => {
+        assert(res.body.code === 'invalid_param');
+        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert.deepEqual(res.body.errors, [
           { field: 'username', code: 'missing_field', message: 'required' },
           { field: 'password', code: 'missing_field', message: 'required' },
-        ],
-      })
-      .expect(422);
+        ]);
+      });
     });
 
     it('should all pass', () => {
@@ -51,15 +53,15 @@ describe('test/validate.test.js', () => {
     it('should return invalid_param when body empty', () => {
       return request(app.callback())
       .post('/users.json')
-      .expect({
-        code: 'invalid_param',
-        message: 'Validation Failed',
-        errors: [
+      .expect(422)
+      .expect(res => {
+        assert(res.body.code === 'invalid_param');
+        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert.deepEqual(res.body.errors, [
           { field: 'username', code: 'missing_field', message: 'required' },
           { field: 'password', code: 'missing_field', message: 'required' },
-        ],
-      })
-      .expect(422);
+        ]);
+      });
     });
 
     it('should return invalid_param when length invaild', () => {
@@ -69,15 +71,15 @@ describe('test/validate.test.js', () => {
         username: 'foo',
         password: '12345',
       })
-      .expect({
-        code: 'invalid_param',
-        message: 'Validation Failed',
-        errors: [
+      .expect(422)
+      .expect(res => {
+        assert(res.body.code === 'invalid_param');
+        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert.deepEqual(res.body.errors, [
           { field: 'username', code: 'invalid', message: 'should be an email' },
           { field: 'password', code: 'invalid', message: 'length should bigger than 6' },
-        ],
-      })
-      .expect(422);
+        ]);
+      });
     });
 
     it('should return invalid_param when password not equal to re-password', () => {
@@ -88,14 +90,14 @@ describe('test/validate.test.js', () => {
         password: '123456',
         're-password': '123123',
       })
-      .expect({
-        code: 'invalid_param',
-        message: 'Validation Failed',
-        errors: [
+      .expect(422)
+      .expect(res => {
+        assert(res.body.code === 'invalid_param');
+        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert.deepEqual(res.body.errors, [
           { field: 'password', code: 'invalid', message: 'should equal to re-password' },
-        ],
-      })
-      .expect(422);
+        ]);
+      });
     });
 
     it('should return invalid_param when username invaild', () => {
@@ -106,12 +108,14 @@ describe('test/validate.test.js', () => {
         password: '123456',
         're-password': '123456',
       })
-      .expect({
-        code: 'invalid_param',
-        message: 'Validation Failed',
-        errors: [{ field: 'username', code: 'invalid', message: 'should be an email' }],
-      })
-      .expect(422);
+      .expect(422)
+      .expect(res => {
+        assert(res.body.code === 'invalid_param');
+        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert.deepEqual(res.body.errors, [
+          { field: 'username', code: 'invalid', message: 'should be an email' },
+        ]);
+      });
     });
 
     it('should all pass', () => {
@@ -141,12 +145,14 @@ describe('test/validate.test.js', () => {
         're-password': '123456',
         addition: 'invalid json',
       })
-      .expect({
-        code: 'invalid_param',
-        message: 'Validation Failed',
-        errors: [{ field: 'addition', code: 'invalid', message: 'must be json string' }],
-      })
-      .expect(422);
+      .expect(422)
+      .expect(res => {
+        assert(res.body.code === 'invalid_param');
+        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert.deepEqual(res.body.errors, [
+          { field: 'addition', code: 'invalid', message: 'must be json string' },
+        ]);
+      });
     });
   });
 });
