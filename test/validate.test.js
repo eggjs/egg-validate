@@ -23,7 +23,7 @@ describe('test/validate.test.js', () => {
       .expect(422)
       .expect(res => {
         assert(res.body.code === 'invalid_param');
-        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
           { field: 'username', code: 'missing_field', message: 'required' },
           { field: 'password', code: 'missing_field', message: 'required' },
@@ -56,7 +56,7 @@ describe('test/validate.test.js', () => {
       .expect(422)
       .expect(res => {
         assert(res.body.code === 'invalid_param');
-        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
           { field: 'username', code: 'missing_field', message: 'required' },
           { field: 'password', code: 'missing_field', message: 'required' },
@@ -74,7 +74,7 @@ describe('test/validate.test.js', () => {
       .expect(422)
       .expect(res => {
         assert(res.body.code === 'invalid_param');
-        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
           { field: 'username', code: 'invalid', message: 'should be an email' },
           { field: 'password', code: 'invalid', message: 'length should bigger than 6' },
@@ -93,7 +93,7 @@ describe('test/validate.test.js', () => {
       .expect(422)
       .expect(res => {
         assert(res.body.code === 'invalid_param');
-        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
           { field: 'password', code: 'invalid', message: 'should equal to re-password' },
         ]);
@@ -111,7 +111,7 @@ describe('test/validate.test.js', () => {
       .expect(422)
       .expect(res => {
         assert(res.body.code === 'invalid_param');
-        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
           { field: 'username', code: 'invalid', message: 'should be an email' },
         ]);
@@ -148,7 +148,7 @@ describe('test/validate.test.js', () => {
       .expect(422)
       .expect(res => {
         assert(res.body.code === 'invalid_param');
-        assert(res.body.message === 'Validation Failed (code: invalid_param)');
+        assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
           { field: 'addition', code: 'invalid', message: 'must be json string' },
         ]);
