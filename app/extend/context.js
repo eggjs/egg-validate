@@ -9,17 +9,8 @@ module.exports = {
         translate: this.gettext.bind(this),
       });
       const config = this.app.config.validate || {};
-      const rules = Object.assign({
-        json(rule, value) {
-          try {
-            JSON.parse(value);
-          } catch (err) {
-            return this.t('must be json string');
-          }
-        },
-      }, config.rules);
-      Object.keys(rules).forEach(key => {
-        this[PARAMETER].addRule(key, rules[key].bind(this[PARAMETER]));
+      Object.keys(config.rules).forEach(key => {
+        this[PARAMETER].addRule(key, config.rules[key].bind(this[PARAMETER]));
       });
     }
     return this[PARAMETER];
