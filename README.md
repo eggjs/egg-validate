@@ -52,16 +52,20 @@ exports.index = function* () {
 
 ### Extend Rules
 
-- app.js
+- config.default.js
 
 ```js
-app.validator.addRule('jsonString', (rule, value) => {
-  try {
-    JSON.parse(value);
-  } catch (err) {
-    return 'must be json string';
+exports.validate = {
+  rules:{
+    jsonString(rule, value) => {
+      try {
+        JSON.parse(value);
+      } catch (err) {
+        return 'must be json string';
+      }
+    }
   }
-});
+}
 ```
 
 ## Questions & Suggestions
