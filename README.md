@@ -46,7 +46,7 @@ exports.validate = {
 exports.index = function* () {
   this.validate({ id: 'id' }); // will throw if invalid
   // or
-  const errors = this.validator.validate({ id: 'id' }, this.request.body);
+  const errors = this.ctx.parameter.validate({ id: 'id' }, this.request.body);
 };
 ```
 
