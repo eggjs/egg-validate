@@ -61,7 +61,7 @@ exports.validate = {
       try {
         JSON.parse(value);
       } catch (err) {
-        return this.t('must be json string');
+        return this.t('must be json string');  //here will call ctx.gettext
       }
     }
   }
