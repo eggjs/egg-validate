@@ -3,7 +3,7 @@
 const Parameter = require('parameter');
 const PARAMETER = Symbol('__parameter__');
 module.exports = {
-  get parameter() {
+  get validator() {
     if (!this[PARAMETER]) {
       this[PARAMETER] = new Parameter({
         translate: this.gettext.bind(this),
@@ -23,7 +23,7 @@ module.exports = {
    */
   validate(rules, data) {
     data = data || this.request.body;
-    const errors = this.parameter.validate(rules, data);
+    const errors = this.validator.validate(rules, data);
     if (errors) {
       this.throw(422, 'Validation Failed', {
         code: 'invalid_param',

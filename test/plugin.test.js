@@ -14,13 +14,18 @@ describe('test/plugin.test.js', () => {
 
   after(() => app.close());
   describe('Test controller', () => {
-    describe('Associate', () => {
-      it('ctx model associate init success', () => {
+    describe('controller#validator init', () => {
+      it('ctx validator associate init success', () => {
+        const ctx = app.mockContext();
+        assert.ok(ctx.validator);
+        assert.ok(ctx.validator.validate);
+      });
+      it('ctx validate associate init success', () => {
         const ctx = app.mockContext();
         assert.ok(ctx.validate);
-        assert.ok(ctx.parameter);
-        assert.ok(ctx.parameter.validate);
       });
     });
   });
+
+
 });
