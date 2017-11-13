@@ -57,11 +57,11 @@ exports.index = function* () {
 ```js
 exports.validate = {
   rules:{
-    jsonString(rule, value) => {
+    jsonString(rule, value){
       try {
         JSON.parse(value);
       } catch (err) {
-        return 'must be json string';
+        return this.t('must be json string');
       }
     }
   }
