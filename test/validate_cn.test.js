@@ -4,7 +4,7 @@ const request = require('supertest');
 const mm = require('egg-mock');
 const assert = require('assert');
 
-describe('test/validate.test.js', () => {
+describe('test/validate_cn.test.js', () => {
   let app;
   before(() => {
     app = mm.app({
@@ -18,22 +18,22 @@ describe('test/validate.test.js', () => {
   describe('get', () => {
     it('should return invalid_param when body empty', () => {
       return request(app.callback())
-      .get('/users.json')
+      .get('/users_cn.json?locale=zh-CN')
       .type('json')
       .expect(422)
       .expect(res => {
         assert(res.body.code === 'invalid_param');
         assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
-          { field: 'username', code: 'missing_field', message: 'required' },
-          { field: 'password', code: 'missing_field', message: 'required' },
+          { field: 'username', code: '缺少字段', message: '必须' },
+          { field: 'password', code: '缺少字段', message: '必须' },
         ]);
       });
     });
 
     it('should all pass', () => {
       return request(app.callback())
-      .get('/users.json')
+      .get('/users_cn.json?locale=zh-CN')
       .send({
         username: 'foo@gmail.com',
         password: '123456',
@@ -52,21 +52,21 @@ describe('test/validate.test.js', () => {
   describe('post', () => {
     it('should return invalid_param when body empty', () => {
       return request(app.callback())
-      .post('/users.json')
+      .post('/users_cn.json?locale=zh-CN')
       .expect(422)
       .expect(res => {
         assert(res.body.code === 'invalid_param');
         assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
-          { field: 'username', code: 'missing_field', message: 'required' },
-          { field: 'password', code: 'missing_field', message: 'required' },
+          { field: 'username', code: '缺少字段', message: '必须' },
+          { field: 'password', code: '缺少字段', message: '必须' },
         ]);
       });
     });
 
     it('should return invalid_param when length invaild', () => {
       return request(app.callback())
-      .post('/users.json')
+      .post('/users_cn.json?locale=zh-CN')
       .send({
         username: 'foo',
         password: '12345',
@@ -76,15 +76,15 @@ describe('test/validate.test.js', () => {
         assert(res.body.code === 'invalid_param');
         assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
-          { field: 'username', code: 'invalid', message: 'should be an email' },
-          { field: 'password', code: 'invalid', message: 'length should bigger than 6' },
+          { field: 'username', code: '无效', message: '应该是电子邮件' },
+          { field: 'password', code: '无效', message: '长度应该大于 6' },
         ]);
       });
     });
 
     it('should return invalid_param when password not equal to re-password', () => {
       return request(app.callback())
-      .post('/users.json')
+      .post('/users_cn.json?locale=zh-CN')
       .send({
         username: 'foo@gmail.com',
         password: '123456',
@@ -95,14 +95,14 @@ describe('test/validate.test.js', () => {
         assert(res.body.code === 'invalid_param');
         assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
-          { field: 'password', code: 'invalid', message: 'should equal to re-password' },
+          { field: 'password', code: '无效', message: '应该等于 re-password' },
         ]);
       });
     });
 
     it('should return invalid_param when username invaild', () => {
       return request(app.callback())
-      .post('/users.json')
+      .post('/users_cn.json?locale=zh-CN')
       .send({
         username: '.foo@gmail.com',
         password: '123456',
@@ -113,14 +113,14 @@ describe('test/validate.test.js', () => {
         assert(res.body.code === 'invalid_param');
         assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
-          { field: 'username', code: 'invalid', message: 'should be an email' },
+          { field: 'username', code: '无效', message: '应该是电子邮件' },
         ]);
       });
     });
 
     it('should all pass', () => {
       return request(app.callback())
-      .post('/users.json')
+      .post('/users_cn.json?locale=zh-CN')
       .send({
         username: 'foo@gmail.com',
         password: '123456',
@@ -138,7 +138,7 @@ describe('test/validate.test.js', () => {
   describe('addRule()', () => {
     it('should check custom rule ok', () => {
       return request(app.callback())
-      .post('/users.json')
+      .post('/users_cn.json?locale=zh-CN')
       .send({
         username: 'foo@gmail.com',
         password: '123456',
@@ -150,7 +150,7 @@ describe('test/validate.test.js', () => {
         assert(res.body.code === 'invalid_param');
         assert(res.body.message === 'Validation Failed');
         assert.deepEqual(res.body.errors, [
-          { field: 'addition', code: 'invalid', message: 'should be json string' },
+          { field: 'addition', code: '无效', message: '应该是一个 JSON 字符串' },
         ]);
       });
     });
