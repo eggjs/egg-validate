@@ -44,7 +44,7 @@ exports.validate = {
 ```js
 // {app_root}/app/controller/home.js
 exports.index = function* () {
-  this.validate({ id: 'id' }); // will throw if invalid
+  this.ctx.validate({ id: 'id' }); // will throw if invalid
   // or
   const errors = this.ctx.parameter.validate({ id: 'id' }, this.request.body);
 };
