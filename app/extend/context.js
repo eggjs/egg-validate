@@ -1,19 +1,19 @@
 'use strict';
 
 const Parameter = require('parameter');
-const PARAMETER = Symbol('__parameter__');
+const VALIDATOR = Symbol('Context#validator');
 module.exports = {
   get validator() {
-    if (!this[PARAMETER]) {
-      this[PARAMETER] = new Parameter({
+    if (!this[VALIDATOR]) {
+      this[VALIDATOR] = new Parameter({
         translate: this.gettext.bind(this),
       });
       const config = this.app.config.validate || {};
       Object.keys(config.rules).forEach(key => {
-        this[PARAMETER].addRule(key, config.rules[key].bind(this[PARAMETER]));
+        this[VALIDATOR].addRule(key, config.rules[key].bind(this[VALIDATOR]));
       });
     }
-    return this[PARAMETER];
+    return this[VALIDATOR];
   },
   /**
    * validate data with rules

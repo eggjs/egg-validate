@@ -13,17 +13,15 @@ describe('test/plugin.test.js', () => {
   });
 
   after(() => app.close());
-  describe('Test controller', () => {
-    describe('controller#validator init', () => {
-      it('ctx validator associate init success', () => {
-        const ctx = app.mockContext();
-        assert.ok(ctx.validator);
-        assert.ok(ctx.validator.validate);
-      });
-      it('ctx validate associate init success', () => {
-        const ctx = app.mockContext();
-        assert.ok(ctx.validate);
-      });
+  describe('controller#validator init', () => {
+    it('ctx validator associate init success', () => {
+      const ctx = app.mockContext();
+      assert.ok(ctx.validator);
+      assert.ok(ctx.validator.validate);
+    });
+    it('ctx validate associate init success', () => {
+      const ctx = app.mockContext();
+      assert.ok(ctx.validate);
     });
   });
 
