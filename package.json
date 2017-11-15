@@ -15,14 +15,14 @@
     "parameter": "^2.0.0"
   },
   "devDependencies": {
-    "autod": "^2.7.1",
-    "egg": "^0.9.0",
-    "egg-bin": "^2.0.2",
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0",
+    "egg": "^1.11.0",
+    "egg-bin": "^4.3.5",
     "egg-ci": "^1.1.0",
-    "egg-mock": "^2.3.1",
-    "eslint": "^3.14.1",
-    "eslint-config-egg": "^3.2.0",
-    "supertest": "^2.0.1"
+    "egg-mock": "^3.3.1",
+    "eslint": "^4.11.0",
+    "eslint-config-egg": "^5.1.1"
   },
   "engines": {
     "node": ">=6.0.0"

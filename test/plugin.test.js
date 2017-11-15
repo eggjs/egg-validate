@@ -16,12 +16,12 @@ describe('test/plugin.test.js', () => {
   describe('controller#validator init', () => {
     it('ctx validator associate init success', () => {
       const ctx = app.mockContext();
-      assert.ok(ctx.validator);
-      assert.ok(ctx.validator.validate);
+      assert(ctx.validator);
+      assert(ctx.validator.validate);
     });
     it('ctx validate associate init success', () => {
       const ctx = app.mockContext();
-      assert.ok(ctx.validate);
+      assert(ctx.validate);
     });
   });
 
