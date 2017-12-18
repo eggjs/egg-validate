@@ -10,7 +10,7 @@ module.exports = {
       });
       const config = this.app.config.validate || {};
       Object.keys(config.rules).forEach(key => {
-        this[VALIDATOR].addRule(key, config.rules[key].bind(this[VALIDATOR]));
+        this[VALIDATOR].addRule(key, config.rules[key].bind(this));
       });
     }
     return this[VALIDATOR];

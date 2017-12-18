@@ -6,7 +6,7 @@ exports.validate = {
       try {
         JSON.parse(value);
       } catch (err) {
-        return this.t('should be json string');
+        return this.gettext('should be json string');
       }
     },
   },

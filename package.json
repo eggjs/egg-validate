@@ -12,16 +12,16 @@
     "validate"
   ],
   "dependencies": {
-    "parameter": "^2.0.0"
+    "parameter": "^2.2.1"
   },
   "devDependencies": {
     "autod": "^3.0.1",
-    "autod-egg": "^1.0.0",
-    "egg": "^1.11.0",
-    "egg-bin": "^4.3.5",
+    "autod-egg": "^1.1.0",
+    "egg": "^2.1.0",
+    "egg-bin": "^4.3.7",
     "egg-ci": "^1.1.0",
-    "egg-mock": "^3.3.1",
-    "eslint": "^4.11.0",
+    "egg-mock": "^3.14.0",
+    "eslint": "^4.13.1",
     "eslint-config-egg": "^5.1.1"
   },
   "engines": {
