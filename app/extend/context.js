@@ -9,7 +9,7 @@ module.exports = {
         translate: this.gettext.bind(this),
       });
       const config = this.app.config.validate || {};
-      Object.keys(config.rules).forEach(key => {
+      config.rules && Object.keys(config.rules).forEach(key => {
         this[VALIDATOR].addRule(key, config.rules[key].bind(this));
       });
     }
