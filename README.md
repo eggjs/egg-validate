@@ -39,6 +39,18 @@ exports.validate = {
 };
 ```
 
+```js
+// {app_root}/config/config.default.js
+module.exports = appInfo => {
+  const config = {};
+  config.validate = {
+    translate: msg => {
+      if (msg === 'required') { return '必选项' }
+      return msg;
+    }
+  }
+  return config;
+```
 ### Validate Request Body
 
 ```js

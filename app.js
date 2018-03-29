@@ -24,5 +24,7 @@ module.exports = app => {
    * });
    * ```
    */
-  app.validator = new Parameter();
+  const opts = app.config.validate;
+
+  app.validator = new Parameter(opts);
 };
