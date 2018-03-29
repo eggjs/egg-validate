@@ -154,5 +154,23 @@ describe('test/validate.test.js', () => {
         ]);
       });
     });
+    it('should check custom translate rule ok', () => {
+      return request(app.callback())
+      .post('/users.json')
+      .send({
+        username: 'foo@gmail.com',
+        password: '123456',
+        're-password': '123456',
+        translate: 'invalid json',
+      })
+      .expect(422)
+      .expect(res => {
+        assert(res.body.code === 'invalid_param');
+        assert(res.body.message === 'Validation Failed');
+        assert.deepEqual(res.body.errors, [
+          { field: 'translate', code: 'invalid', message: 'json2字段必须是字符串' },
+        ]);
+      });
+    });
   });
 });
