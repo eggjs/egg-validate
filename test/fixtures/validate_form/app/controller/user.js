@@ -12,6 +12,10 @@ const createRule = {
     required: false,
     type: 'json'
   },
+  translate: {
+    required: false,
+    type: 'json2'
+  },
 };
 
 exports.create = function* () {
