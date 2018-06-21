@@ -4,7 +4,7 @@ interface CheckHandlerFunc {
 
 interface ValidateError {
   code: string;
-  field: string;
+  field?: string;
   message: string;
 }
 
