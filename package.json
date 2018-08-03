@@ -12,17 +12,16 @@
     "validate"
   ],
   "dependencies": {
-    "parameter": "^2.0.0"
+    "parameter": "^2.4.0"
   },
   "devDependencies": {
-    "autod": "^2.7.1",
-    "egg": "^0.9.0",
-    "egg-bin": "^2.0.2",
-    "egg-ci": "^1.1.0",
-    "egg-mock": "^2.3.1",
-    "eslint": "^3.14.1",
-    "eslint-config-egg": "^3.2.0",
-    "supertest": "^2.0.1"
+    "autod": "^3.0.1",
+    "egg": "^1.15.2",
+    "egg-bin": "^4.8.1",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.18.0",
+    "eslint": "^5.2.0",
+    "eslint-config-egg": "^7.0.0"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -36,7 +35,7 @@
     "autod": "autod"
   },
   "ci": {
-    "version": "6, 7"
+    "version": "6, 8, 10"
   },
   "repository": {
     "type": "git",

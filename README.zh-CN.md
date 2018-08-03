@@ -31,8 +31,9 @@ $ npm i egg-validate --save
 ## 配置
 
 ```js
-// {app_root}/config/plugin.js
+// config/plugin.js
 exports.validate = {
+  enable: true,
   package: 'egg-validate',
 };
 ```
