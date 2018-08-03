@@ -5,6 +5,11 @@
   "eggPlugin": {
     "name": "validate"
   },
+  "files": [
+    "app",
+    "app.js",
+    "index.d.ts"
+  ],
   "keywords": [
     "egg",
     "eggPlugin",
