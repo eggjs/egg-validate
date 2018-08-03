@@ -22,7 +22,7 @@
 
 Validate plugin for egg.
 
-see [parameter](https://github.com/node-modules/parameter) for more information such as custom rule.
+See [parameter](https://github.com/node-modules/parameter) for more information such as custom rule.
 
 ## Install
 
@@ -33,8 +33,9 @@ $ npm i egg-validate --save
 ## Usage
 
 ```js
-// {app_root}/config/plugin.js
+// config/plugin.js
 exports.validate = {
+  enable: true,
   package: 'egg-validate',
 };
 ```
@@ -42,7 +43,7 @@ exports.validate = {
 ### Validate Request Body
 
 ```js
-// {app_root}/app/controller/home.js
+// app/controller/home.js
 exports.index = function* () {
   this.validate({ id: 'id' }); // will throw if invalid
   // or
