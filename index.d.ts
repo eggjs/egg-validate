@@ -1,5 +1,5 @@
 interface CheckHandlerFunc {
-  (rule: any, value: any): string;
+  (rule: any, value: any): string | void;
 }
 
 interface ValidateError {
