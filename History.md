@@ -1,4 +1,13 @@
 
+1.1.1 / 2018-08-08
+==================
+
+**fixes**
+  * [[`2e14962`](http://github.com/eggjs/egg-validate/commit/2e1496206197a96925f35badff8e683c5c5a7cc8)] - fix: customize rules can return void (kirno <<kirning@hotmail.com>>)
+
+**others**
+  * [[`12b3f38`](http://github.com/eggjs/egg-validate/commit/12b3f38734b4c051ef34504f077fb6e54a6ceca5)] - chore: remove supertest on autod (fengmk2 <<fengmk2@gmail.com>>)
+
 1.1.0 / 2018-08-03
 ==================
 
