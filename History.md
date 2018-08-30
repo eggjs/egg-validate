@@ -1,4 +1,10 @@
 
+2.0.0 / 2018-08-30
+==================
+
+**others**
+  * [[`84670c1`](http://github.com/eggjs/egg-validate/commit/84670c1760758003a5d2ecd1e356485e3cd08998)] - deps: upgrade to parameter@3 (#14) (Yiyu He <<dead_horse@qq.com>>)
+
 1.1.1 / 2018-08-08
 ==================
 
