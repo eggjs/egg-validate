@@ -38,6 +38,16 @@ exports.validate = {
 };
 ```
 
+egg-validate 支持 parameter 的所有配置项，查看 [parameter 文档](https://github.com/node-modules/parameter) 获取配置项的更多信息。
+
+```js
+// config/config.default.js
+exports.validate = {
+  // convert: false,
+  // validateRoot: false,
+};
+```
+
 ## 使用方法
 
 - `ctx.validate(rule[, data])`
