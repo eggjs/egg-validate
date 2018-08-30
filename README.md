@@ -40,6 +40,18 @@ exports.validate = {
 };
 ```
 
+### Configurations
+
+egg-validate support all parameter's configurations, check [parameter documents](https://github.com/node-modules/parameter) to get more infomations.
+
+```js
+// config/config.default.js
+exports.validate = {
+  // convert: false,
+  // validateRoot: false,
+};
+```
+
 ### Validate Request Body
 
 ```js

@@ -17,7 +17,7 @@
     "validate"
   ],
   "dependencies": {
-    "parameter": "^2.4.0"
+    "parameter": "^3.0.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
