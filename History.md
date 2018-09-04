@@ -1,4 +1,10 @@
 
+2.0.1 / 2018-09-04
+==================
+
+**fixes**
+  * [[`06f8221`](http://github.com/eggjs/egg-validate/commit/06f822127a252abc2f128ddbc75451df147119c6)] - fix: make ctx.validate types ignorable (#15) (chianquan <<chianquan@qq.com>>)
+
 2.0.0 / 2018-08-30
 ==================
 
