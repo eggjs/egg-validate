@@ -1,4 +1,11 @@
 
+2.0.2 / 2018-10-17
+==================
+
+**others**
+  * [[`84f9523`](http://github.com/eggjs/egg-validate/commit/84f952392160294da2523df90c924fe8134ddc0c)] - types: data is not required (#13) (阿林 <<724159997@qq.com>>)
+  * [[`df70810`](http://github.com/eggjs/egg-validate/commit/df70810d8ff4d8e8eb54fe6354ac16e447c2a084)] - chore: typo on access validator on ctx (#16) (fengmk2 <<fengmk2@gmail.com>>)
+
 2.0.1 / 2018-09-04
 ==================
 
