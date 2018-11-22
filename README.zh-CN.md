@@ -31,9 +31,20 @@ $ npm i egg-validate --save
 ## 配置
 
 ```js
-// {app_root}/config/plugin.js
+// config/plugin.js
 exports.validate = {
+  enable: true,
   package: 'egg-validate',
+};
+```
+
+egg-validate 支持 parameter 的所有配置项，查看 [parameter 文档](https://github.com/node-modules/parameter) 获取配置项的更多信息。
+
+```js
+// config/config.default.js
+exports.validate = {
+  // convert: false,
+  // validateRoot: false,
 };
 ```
 

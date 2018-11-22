@@ -14,10 +14,11 @@ module.exports = {
     'autod',
     'eslint',
     'eslint-config-egg',
-    'supertest',
   ],
   exclude: [
     './test/fixtures',
   ],
-  registry: 'https://r.cnpmjs.org',
-}
+  semver: [
+    'egg@1',
+  ],
+};

@@ -5,10 +5,11 @@ const VALIDATOR = Symbol('Context#validator');
 module.exports = {
   get validator() {
     if (!this[VALIDATOR]) {
-      this[VALIDATOR] = new Parameter({
+      const config = this.app.config.validate || {};
+      Object.assign(config, {
         translate: this.gettext.bind(this),
       });
-      const config = this.app.config.validate || {};
+      this[VALIDATOR] = new Parameter(config);
       config.rules && Object.keys(config.rules).forEach(key => {
         this[VALIDATOR].addRule(key, config.rules[key].bind(this));
       });
