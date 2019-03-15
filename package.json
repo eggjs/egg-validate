@@ -11,6 +11,8 @@
     "config",
     "index.d.ts"
   ],
+  "main": "app.js",
+  "typings": "index.d.ts",
   "keywords": [
     "egg",
     "eggPlugin",
