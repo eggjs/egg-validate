@@ -54,6 +54,24 @@ exports.validate = {
 
 ### Validate Request Body
 
+#### Controller Class(Recommended)
+
+```js
+// app/controller/home.js
+const Controller = require('egg').Controller;
+class HomeController extends Controller {
+  async index() {
+    const { ctx, app } = this;
+    ctx.validate({ id: 'id' }); // will throw if invalid
+    // or
+    const errors = app.validator.validate({ id: 'id' }, ctx.request.body);
+  }
+}
+module.exports = HomeController;
+```
+
+#### Methods Style Controller (It's not recommended, only for compatibility)
+
 ```js
 // app/controller/home.js
 exports.index = function* () {
