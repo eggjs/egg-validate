@@ -54,8 +54,6 @@ exports.validate = {
 
 ### Validate Request Body
 
-#### Controller Class(Recommended)
-
 ```js
 // app/controller/home.js
 const Controller = require('egg').Controller;
@@ -68,17 +66,6 @@ class HomeController extends Controller {
   }
 }
 module.exports = HomeController;
-```
-
-#### Methods Style Controller (It's not recommended, only for compatibility)
-
-```js
-// app/controller/home.js
-exports.index = function* () {
-  this.validate({ id: 'id' }); // will throw if invalid
-  // or
-  const errors = this.app.validator.validate({ id: 'id' }, this.request.body);
-};
 ```
 
 ### Extend Rules
