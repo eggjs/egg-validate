@@ -56,11 +56,16 @@ exports.validate = {
 
 ```js
 // app/controller/home.js
-exports.index = function* () {
-  this.validate({ id: 'id' }); // will throw if invalid
-  // or
-  const errors = this.app.validator.validate({ id: 'id' }, this.request.body);
-};
+const Controller = require('egg').Controller;
+class HomeController extends Controller {
+  async index() {
+    const { ctx, app } = this;
+    ctx.validate({ id: 'id' }); // will throw if invalid
+    // or
+    const errors = app.validator.validate({ id: 'id' }, ctx.request.body);
+  }
+}
+module.exports = HomeController;
 ```
 
 ### Extend Rules
