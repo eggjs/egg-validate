@@ -2,7 +2,7 @@
 
 const mm = require('egg-mock');
 
-describe('test/validate.test.js', () => {
+describe('test/validate_covert.test.js', () => {
   let app;
   before(() => {
     app = mm.app({

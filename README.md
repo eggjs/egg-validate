@@ -70,16 +70,20 @@ module.exports = HomeController;
 
 ### Extend Rules
 
-- app.js
+- config.default.js
 
 ```js
-app.validator.addRule('jsonString', (rule, value) => {
-  try {
-    JSON.parse(value);
-  } catch (err) {
-    return 'must be json string';
+exports.validate = {
+  rules:{
+    jsonString(rule, value){
+      try {
+        JSON.parse(value);
+      } catch (err) {
+        return this.gettext('must be json string');  //here will call ctx.gettext
+      }
+    }
   }
-});
+}
 ```
 
 ## Questions & Suggestions
