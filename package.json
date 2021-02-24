@@ -18,6 +18,7 @@
     "validate"
   ],
   "dependencies": {
+    "@types/parameter": "^3.6.0",
     "parameter": "^3.0.0"
   },
   "devDependencies": {
