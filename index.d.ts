@@ -9,14 +9,12 @@ interface ValidateError {
 }
 
 declare module 'egg' {
+  import Parameter from 'parameter'
   export interface Application {
-    validator: {
-      addRule: (type: string, check: RegExp | CheckHandlerFunc) => void;
-      validate: (rules: any, data: any) => ValidateError[];
-    };
+    validator: Parameter;
   }
 
   export interface Context {
-    validate: (rules: any, data?: any) => void;
+    validate: (rules: Parameter.ParameterRules, data?: unknown) => void;
   }
 }
