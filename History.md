@@ -1,4 +1,10 @@
 
+1.1.2 / 2021-09-28
+==================
+
+**others**
+  * [[`32e2288`](https://github.com/eggjs/egg-validate/commit/32e2288a012815f3ad32c3e1dc6c68119f9d56a2)] - types: data is not required (#25) (sky <<hubcarl@126.com>>)
+
 1.1.1 / 2018-08-08
 ==================
 
