@@ -17,6 +17,6 @@ declare module 'egg' {
   }
 
   export interface Context {
-    validate: (rules: any, data: any) => void;
+    validate: (rules: any, data?: any) => void;
   }
 }
