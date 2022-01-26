@@ -1,3 +1,5 @@
+import Parameter from 'parameter'
+
 interface CheckHandlerFunc {
   (rule: any, value: any): string | void;
 }
@@ -10,13 +12,10 @@ interface ValidateError {
 
 declare module 'egg' {
   export interface Application {
-    validator: {
-      addRule: (type: string, check: RegExp | CheckHandlerFunc) => void;
-      validate: (rules: any, data: any) => ValidateError[];
-    };
+    validator: Parameter;
   }
 
   export interface Context {
-    validate: (rules: any, data?: any) => void;
+    validate(rule: Parameter.ParameterRules, value: unknown): Parameter.ValidateError[];
   }
 }
