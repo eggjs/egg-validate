@@ -8,6 +8,8 @@ interface ValidateError {
   message: string;
 }
 
+import Parameters from 'parameter';
+
 declare module 'egg' {
   export interface Application {
     validator: {
@@ -17,6 +19,6 @@ declare module 'egg' {
   }
 
   export interface Context {
-    validate: (rules: any, data?: any) => void;
+    validate: Parameters['validate'];
   }
 }
